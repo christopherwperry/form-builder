@@ -96,5 +96,56 @@ let formData = [
 
 
 // -------- Your Code Goes Below this Line --------
+let fieldContent = document.getElementById('fields');
 
+for (let i = 0; i < 4; i++) {
+  let inputs = document.createElement("input");
+  inputs.setAttribute("type", formData[i].type);
+  inputs.setAttribute("id", formData[i].id);
+  inputs.setAttribute("placeholder", formData[i].label);
+  inputs.setAttribute("icon", formData[i].icon);
+  fieldContent.appendChild(inputs);
+}
 
+for (let i = 4; i < 5; i++) {
+  let selects = document.createElement("select");
+  let selectsText = document.createTextNode(formData[i].label)
+  selects.setAttribute("type", formData[i].type);
+  selects.setAttribute("id", formData[i].id);
+  selects.setAttribute("name", formData[i].label);
+  selects.setAttribute("icon", formData[i].icon);
+  selects.appendChild(selectsText)
+  fieldContent.appendChild(selects);
+}
+
+for (let i = 5; i < 6; i++) {
+  let textAreas = document.createElement("textarea");
+  textAreas.setAttribute("type", formData[i].type);
+  textAreas.setAttribute("id", formData[i].id);
+  textAreas.setAttribute("placeholder", formData[i].label);
+  textAreas.setAttribute("icon", formData[i].icon);
+  fieldContent.appendChild(textAreas);
+}
+
+for (let i = 6; i < formData.length; i++) {
+  let inputs = document.createElement("input");
+  inputs.setAttribute("type", formData[i].type);
+  inputs.setAttribute("id", formData[i].id);
+  inputs.setAttribute("placeholder", formData[i].label);
+  inputs.setAttribute("icon", formData[i].icon);
+  fieldContent.appendChild(inputs);
+}
+
+let selectGrab = document.getElementById('user-language');
+let firstOption = document.createElement("option");
+let firstOptionText = document.createTextNode("Select language...");
+firstOption.appendChild(firstOptionText);
+selectGrab.appendChild(firstOption);
+
+for (let j = 0; j < formData[4].options.length; j++){
+  let optionsObj = document.createElement("option");
+  let optionsText = document.createTextNode(formData[4].options[j].label);
+  optionsObj.setAttribute("value",formData[4].options[j].value);
+  optionsObj.appendChild(optionsText);
+  selectGrab.appendChild(optionsObj);
+}
